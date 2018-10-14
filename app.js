@@ -60,13 +60,14 @@ app.get('/gallery/:gallery_id', (req, res) => {
   fetch(ids)
   .then(response => response.json())
   .then(data => {
+    console.log(data.name);
     res.renderVue('gallery.vue', {objects: data.records});
   })
 });
 
 let comments = [];
 // Show object
-app.get('/objects/:object_id', (req, res) => {
+app.get('/object/:object_id', (req, res) => {
   const ids = `https://api.harvardartmuseums.org/object/${req.params.object_id}?apikey=${API_KEY}`;
   fetch(ids)
   .then(response => response.json())
