@@ -98,8 +98,15 @@ app.get('/object/:object_id', (req, res) => {
 });
 
 // Comment on object
-app.get('/objects/:object_id/comment', (req, res) => {
-  // TODO
+//when form is submitted, post request is handled by adding the comment to list using body-parser
+app.post('/objects/:object_id/comment', (req, res) => {
+  //adds the comment and its object ID to the overall list of comments
+  comments.push({text: req.body.comment, id: req.params.object_id});
+  //creates and concatenates a string for the redirect URL to go back to object page
+  let address = '/object/';
+  address+= req.params.object_id;
+  //redirects to page for the individual object after adding comment for it
+  res.redirect(address);
 });
 
 // Listen on socket
