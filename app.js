@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('static'));
 
-const API_KEY = '6a6275c0-b77e-11e8-a4d1-69890776a30b';
+const API_KEY = '';
 
 // Options for express-vue
 const vueOptions = {
